@@ -72,7 +72,7 @@ public class RobotSynchronizer {
         int nowY = robot.getY();
         Direction nowDirection = robot.getDirection();
         // the robot will move until it is at the target position and direction
-        while (nowX != x && nowY != y && nowDirection != direction) {
+        while (nowX != x || nowY != y || nowDirection != direction) {
             // the robot is at left-down to the target, turn the robot to up or right and move a step
             if (nowX < x && nowY < y) {
                 if (nowDirection == Direction.DOWN || nowDirection == Direction.LEFT) {

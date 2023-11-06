@@ -22,6 +22,7 @@ public class RGBRobot extends MultiFamilyRobot {
     public RGBRobot(int x, int y, boolean inverted) {
         super(x, y, new RobotFamily[]{SQUARE_RED, SQUARE_GREEN, SQUARE_BLUE});
         if (inverted) {
+            setRobotFamily(SQUARE_BLUE);
             setFamilies(new RobotFamily[]{SQUARE_BLUE, SQUARE_GREEN, SQUARE_RED});
         }
     }
