@@ -8,7 +8,7 @@ import fopbot.RobotFamily;
  */
 public class MultiFamilyRobot extends Robot {
 
-    private final RobotFamily[] families;
+    private RobotFamily[] families;
     private int currentFamilyIndex;
 
     /**
@@ -16,9 +16,9 @@ public class MultiFamilyRobot extends Robot {
      * direction {@code UP} and 0 coins. The family of this robot is the first family in the given
      * list of families.
      *
-     * @param x           the X coordinate of the newly constructed robot
-     * @param y           the Y coordinate of the newly constructed robot
-     * @param families    the multifamily of this robot
+     * @param x        the X coordinate of the newly constructed robot
+     * @param y        the Y coordinate of the newly constructed robot
+     * @param families the multifamily of this robot
      */
     public MultiFamilyRobot(int x, int y, RobotFamily[] families) {
         super(x, y, families[0]);
@@ -29,7 +29,7 @@ public class MultiFamilyRobot extends Robot {
      * Exchanges the family of this robot with the next family in the list of families. If this robot
      * is currently in the last family of the list, select the first family of the list.
      */
-    public void exchange(){
+    public void exchange() {
         currentFamilyIndex = (currentFamilyIndex + 1) % families.length;
         setRobotFamily(families[currentFamilyIndex]);
     }
@@ -37,8 +37,12 @@ public class MultiFamilyRobot extends Robot {
     /**
      * Moves the robot one field forward and exchanges the family of this robot.
      */
-    public void move(){
+    public void move() {
         super.move();
         exchange();
+    }
+
+    public void setFamilies(RobotFamily[] families) {
+        this.families = families;
     }
 }
